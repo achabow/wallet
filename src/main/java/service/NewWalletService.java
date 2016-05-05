@@ -1,9 +1,14 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+
+import hibernate.util.HibernateUtil;
 import hibernate.util.HibernateUtilWallet;
 import model.Wallet;
 
@@ -30,7 +35,29 @@ public class NewWalletService {
 		}
 		return true;
 	}
-
+	//lista do wyswietania portfela do wykorzystania w .jsp
+	
+	
+	public List<Wallet> getWallet(){
+		List<Wallet> list = new ArrayList<Wallet>();
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			list = session.createQuery("from Wallet").list();
+			tx.commit();
+		} catch (Exception e){
+			if (tx != null){
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+	
 	public boolean isWalletExists(Wallet wallet) {
 		Session session = HibernateUtilWallet.openSession();
 		boolean result = false;

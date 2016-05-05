@@ -8,7 +8,7 @@
 <head>
 	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	 <link rel="stylesheet" type="text/css" href="css/style.css"/> 
-	 	<link type="text/css" href="../css/bootstrap.css" rel="stylesheet" />
+	 	<link type="text/css" href="./css/bootstrap.css" rel="stylesheet" />
 	 
 	 <title>Result Page</title>	
 </head>
@@ -54,8 +54,8 @@
 		 </table>		
 		 <br/>
 		 <a href="newwallet.jsp" class="btn btn-primary" role="button">Stwórz portfel</a>
+		 <a href="walletlogin.jsp" class="btn btn-primary" role="button">Edytuj portfel</a>
 	 </div>
-	 <a href="newwallet.jsp" class="btn btn-primary" role="button">Stwórz portfel</a>
 	</center>	
 	
 </body>

@@ -13,6 +13,10 @@ import service.NewWalletService;
 
 
 public class NewWalletServlet extends HttpServlet{
+	
+	public void response() {
+	}
+	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,6 +41,7 @@ public class NewWalletServlet extends HttpServlet{
 		 out.println("<body>");
 		 out.println("<center>");
 		 if(result){
+			 response.sendRedirect("walletlogin.jsp");
 			 out.println("<h1>Thanks for Registering with us :</h1>");
 			 out.println("To login with new UserId and Password<a href=login.jsp>Click here</a>");
 		 }else{
