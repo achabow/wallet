@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import controller.EditWalletServlet;
 import controller.LoginServlet;
 import hibernate.util.HibernateUtil;
 import hibernate.util.HibernateUtilWallet;
@@ -57,6 +58,49 @@ public class NewWalletService {
 		}
 		return list;
 	}
+	
+	
+	public List<Wallet> getWalletById(Long id){
+		List<Wallet> list = new ArrayList<Wallet>();
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			list = session.createQuery("from Wallet where id ='" + id + "'").list();
+			tx.commit();
+		} catch (Exception e){
+			if (tx != null){
+				tx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+	
+	
+	//lista do wyswietania portfela do wykorzystania w .jsp
+		public List<Wallet> getCurrentWallet(){
+			List<Wallet> list = new ArrayList<Wallet>();
+			Session session = HibernateUtil.openSession();
+			Transaction tx = null;
+			try {
+				tx = session.getTransaction();
+				tx.begin();
+				list = session.createQuery("from Wallet where id ='" + EditWalletServlet.walletId + "'").list();
+				tx.commit();
+			} catch (Exception e){
+				if (tx != null){
+					tx.rollback();
+				}
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			return list;
+		}
 	
 	public boolean isWalletExists(Wallet wallet) {
 		Session session = HibernateUtilWallet.openSession();

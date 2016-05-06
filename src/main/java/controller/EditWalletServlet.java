@@ -12,6 +12,9 @@ import model.Wallet;
 import service.NewWalletService;
 
 public class EditWalletServlet extends HttpServlet {
+	
+	public static Long walletId;
+	
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -19,10 +22,13 @@ public class EditWalletServlet extends HttpServlet {
 		
 		
 		Long id = Long.parseLong(request.getParameter("walletId"));
-		
+		request.getSession().setAttribute("walletId", id);
+		walletId = Long.parseLong(request.getParameter("walletId"));
 		NewWalletService newWalletService = new NewWalletService();
 		System.out.println("aaa" + id.toString());
 		
 	}
+	
+
 }
 

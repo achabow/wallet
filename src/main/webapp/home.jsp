@@ -35,7 +35,8 @@
 			 <thead>
 				 <tr>
 					 <th>Nazwa</th>
-					 <th>Opis</th>				
+					 <th>Opis</th>	
+					 <th>zz</th>			
 				 </tr>
 			 </thead>
 			 <tbody>
@@ -47,7 +48,7 @@
 				 <tr>
 					 <td><%=w.getWalletName()%></td>
 					 <td><%=w.getWalletDesc()%></td>
-					 <td>     </td>
+					 <td><a href="walletlogin.jsp?walletId=<%=w.getId()%>" class="btn btn-primary" role="button">Edytuj portfel</a></td>
 				 </tr>
 				 <%}%>
 			 <tbody>

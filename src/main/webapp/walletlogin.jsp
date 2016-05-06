@@ -5,6 +5,7 @@
 <%@page import="service.NewWalletService"%>
 <%@page import="java.util.Date"%>
 <%@page import="model.User"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +21,7 @@
 			 <%
 				 User user = (User) session.getAttribute("user");
 			 %>		
-			 <%-- <b>Welcome <%= user.getFirstName() + " " + user.getLastName()%></b> --%>
+			  <b>Welcome <%= user.getFirstName() + " " + user.getLastName() + " " + request.getParameter("walletId") %></b>
 		</h3>
 		<table class="table table-bordered table-condensed">
 			<thead>
@@ -29,8 +30,10 @@
 			</thead>
 				 <%
  					 NewWalletService newWalletService = new NewWalletService();
-					 List<Wallet> list = newWalletService.getListOfWallets();
-					 for (Wallet w : list) { 
+				 	 Long id = Long.parseLong(request.getParameter("walletId"));
+					 request.getSession().setAttribute("walletId", id);
+					 List<Wallet> list = newWalletService.getWalletById(id);
+					 for (Wallet w : list) {  
 				 %>			
 			<tbody>
 				<h4>Nazwa portfela: <%=w.getWalletName() %></h4>
@@ -42,7 +45,12 @@
 				<tr class="danger">
 					<td>Samochód</td>
 					<td><input></input></td>
-					<td><button type="button" class ="btn btn-success">dodaj</button><button type="button" class ="btn btn-danger">usuń</button></td>				</tr>
+					<td>
+						<button type="submit" name="buttonAdd" class ="btn btn-success">dodaj</button>
+						<button type="buttonRemove" name="butonRemove" class ="btn btn-danger">usuń</button>
+						</form>
+					</td>				
+				</tr>
 				<tr class="warning">
 					<td>Jedzenie</td>
 					<td><input></input></td>
