@@ -20,7 +20,7 @@
 			 <%
 				 User user = (User) session.getAttribute("user");
 			 %>		
-			 <b>Welcome <%= user.getFirstName() + " " + user.getLastName()%></b>
+			 <%-- <b>Welcome <%= user.getFirstName() + " " + user.getLastName()%></b> --%>
 		</h3>
 		<table class="table table-bordered table-condensed">
 			<thead>
@@ -28,32 +28,35 @@
 				</tr>
 			</thead>
 				 <%
-					 NewWalletService newWalletService = new NewWalletService();
-					 List<Wallet> list = newWalletService.getWallet();
-					 for (Wallet w : list) {
+ 					 NewWalletService newWalletService = new NewWalletService();
+					 List<Wallet> list = newWalletService.getListOfWallets();
+					 for (Wallet w : list) { 
 				 %>			
 			<tbody>
+				<h4>Nazwa portfela: <%=w.getWalletName() %></h4>
 				<tr class="success">
 					<td>Pensja</td>
-					<td><%=w.getWalletDesc() %></td>
-					<td>200</td>
+					<td><%=w.getWalletBalance() + " PLN" %></td>
 				</tr>
 				<%}%>
 				<tr class="danger">
 					<td>Samochód</td>
-					<td>20</td>
-				</tr>
+					<td><input></input></td>
+					<td><button type="button" class ="btn btn-success">dodaj</button><button type="button" class ="btn btn-danger">usuń</button></td>				</tr>
 				<tr class="warning">
-					<td>Żywność</td>
-					<td>20</td>
+					<td>Jedzenie</td>
+					<td><input></input></td>
+					<td><button type="button" class ="btn btn-success">dodaj</button><button type="button" class ="btn btn-danger">usuń</button></td>
 				</tr>
 				<tr class="info">
 					<td>Rozrywka</td>
-					<td>20</td>
+					<td><input></input></td>
+					<td><button type="button" class ="btn btn-success">dodaj</button><button type="button" class ="btn btn-danger">usuń</button></td>
 				</tr>
 				<tr class="success">
 					<td>Inne</td>
-					<td>10</td>
+					<td><input></input></td>
+					<td><button type="button" class ="btn btn-success">dodaj</button><button type="button" class ="btn btn-danger">usuń</button></td>
 				</tr>				
 			</tbody>
 		</table>

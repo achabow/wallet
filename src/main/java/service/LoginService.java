@@ -75,6 +75,7 @@ public class LoginService {
 			Query query = session.createQuery("SELECT id FROM User where userId='" + userId + "'");
 			//System.out.println((query.uniqueResult()).toString());
 			result = Long.parseLong((query.uniqueResult()).toString());
+			System.out.println(result);
 			tx.commit();
 			
 		} catch (Exception ex) {

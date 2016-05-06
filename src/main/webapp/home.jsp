@@ -1,7 +1,9 @@
 <%@page import="java.util.List"%>
 <%@page import="service.LoginService"%>
 <%@page import="java.util.Date"%>
+<%@page import="service.NewWalletService"%>
 <%@page import="model.User"%>
+<%@page import="model.Wallet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,8 +22,11 @@
 			 <%=new Date()%></br>
 			 <%
 				 User user = (User) session.getAttribute("user");
+
+			 	 Wallet wallet = (Wallet) session.getAttribute("wallet");
 			 %>		
-			 <b>Welcome <%= user.getFirstName() + " " + user.getLastName()%></b>		
+			 <b>Welcome <%= user.getFirstName() + " " + user.getLastName() %></b>
+				
 			 <br/>
 			 <a href="logout.jsp">Logout</a>
 		 </p>
@@ -29,25 +34,20 @@
 		 <table>
 			 <thead>
 				 <tr>
-					 <th>User ID</th>
-					 <th>First Name</th>
-					 <th>Middle Name</th>
-					 <th>Last Name</th>
-					 <th>email</th>					
+					 <th>Nazwa</th>
+					 <th>Opis</th>				
 				 </tr>
 			 </thead>
 			 <tbody>
 				 <%
-					 LoginService loginService = new LoginService();
-					 List<User> list = loginService.getListOfUsers();
-					 for (User u : list) {
+				 NewWalletService newWalletService = new NewWalletService();
+				 List<Wallet> list = newWalletService.getListOfWallets();
+					 for (Wallet w : list) {
 				 %>
 				 <tr>
-					 <td><%=u.getUserId()%></td>
-					 <td><%=u.getFirstName()%></td>
-					 <td><%=u.getMiddleName()%></td>
-					 <td><%=u.getLastName()%></td>
-					 <td><%=u.getEmail()%></td>
+					 <td><%=w.getWalletName()%></td>
+					 <td><%=w.getWalletDesc()%></td>
+					 <td>     </td>
 				 </tr>
 				 <%}%>
 			 <tbody>

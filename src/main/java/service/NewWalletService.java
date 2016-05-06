@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
+import controller.LoginServlet;
 import hibernate.util.HibernateUtil;
 import hibernate.util.HibernateUtilWallet;
 import model.Wallet;
@@ -35,17 +35,17 @@ public class NewWalletService {
 		}
 		return true;
 	}
+	
+	
 	//lista do wyswietania portfela do wykorzystania w .jsp
-	
-	
-	public List<Wallet> getWallet(){
+	public List<Wallet> getListOfWallets(){
 		List<Wallet> list = new ArrayList<Wallet>();
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.getTransaction();
 			tx.begin();
-			list = session.createQuery("from Wallet").list();
+			list = session.createQuery("from Wallet where clientId ='" + LoginServlet.id + "'").list();
 			tx.commit();
 		} catch (Exception e){
 			if (tx != null){
@@ -66,6 +66,7 @@ public class NewWalletService {
 			tx = session.getTransaction();
 			tx.begin();					      
 			Query query = session.createQuery("select id from User where clientId ='" + wallet.getClientId() + "'");
+			System.out.println(wallet.getClientId());
 			Wallet u = (Wallet) query.uniqueResult();
 			tx.commit();
 			if (u != null)
