@@ -1,67 +1,102 @@
 <html>
 <head>
-	<link type="text/css" href="../css/bootstrap.css" rel="stylesheet" />
-	
+<link type="text/css" href="../css/bootstrap.css" rel="stylesheet" />
+
 
 <title>Registration Form</title>
-<style type="text/css">
-h3{font-family: Calibri; font-size: 22pt; font-style: normal; font-weight: bold; color:SlateBlue;
-text-align: center; text-decoration: underline }
-table{font-family: Calibri; color:white; font-size: 11pt; font-style: normal;width: 50%;
-text-align:; background-color: SlateBlue; border-collapse: collapse; border: 2px solid navy}
-table.inner{border: 0px}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link type="text/css" href="./css/bootstrap.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		
 </style>
 </head>
- 
+
 <body>
-<h3>Student Registration Form</h3>
-<form action="RegisterServlet" method="POST">
- 
-<table align="center" cellpadding = "10">
-<tr>
-<td>First Name</td>
-<td><input type="text" name="firstName" maxlength="30"/>
-(max 30 characters a-z and A-Z)
-</td>
-</tr>
-<tr>
-<td>Middle Name</td>
-<td><input type="text" name="middleName" maxlength="30"/>
-(max 30 characters a-z and A-Z)
-</td>
-</tr>
- 
-<tr>
-<td>Last Name</td>
-<td><input type="text" name="lastName" maxlength="30"/>
-(max 30 characters a-z and A-Z)
-</td>
-</tr>
- 
-<tr>
-<td>Email</td>
-<td><input type="text" name="email" maxlength="100" /></td>
-</tr>
+	<form action="RegisterServlet" method="POST">   <!-- usunac ?? -->
 
-<tr>
-<td>User ID</td>
-<td><input type="text" name="userId" maxlength="100" /></td>
-</tr>
-<tr>
-<td>Password</td>
-<td><input type="text" name="password" maxlength="100" /></td>
-</tr>
+<div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<h1 class="title">Account register</h1>
+	               		<hr />
+	               	</div>
+	            </div> 
+				<div class="main-login main-center">
+					<form action="RegisterServlet" method="POST">
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">First Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="firstName"  placeholder="Enter your First Name"/>
+								</div>
+							</div>
+						</div>
 
-<tr>
-<td colspan="2" align="center">
-<input type="submit" value="Submit">
-<input type="reset" value="Reset">
-</td>
-</tr>
-</table>
-<button type="button" class="btn btn-success">Dziala</button>
- 
-</form>
- 
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Middle Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="middleName"   placeholder="Enter your Middle Name"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Last Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastName"  placeholder="Enter your Last Name"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="email"  placeholder="Enter your Email"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Login</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="userId"  placeholder="Enter your Login"/>
+								</div>
+							</div>
+						</div>												
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password"  placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="login-register">
+							<input class="btn btn-success btn-block" type="submit"value="register"> 
+							<input class="btn btn-danger btn-block" type="reset" value="Reset">
+				         </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</form>
+
 </body>
 </html>

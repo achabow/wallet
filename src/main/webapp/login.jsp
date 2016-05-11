@@ -3,42 +3,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Login Page</title>
-
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	 <link rel="stylesheet" type="text/css" href="css/style.css"/> 
+	 <link type="text/css" href="./css/bootstrap.css" rel="stylesheet" />
+	 
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 
 <body>
 
 <form method="post" action="LoginServlet">
-<div style="padding: 100px 0 0 250px;">
 
+<div class="container">
+    <div class="row vertical-offset-100">
+    	<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Please sign in</h3>
+			 	</div>
+			  	<div class="panel-body">
+			    	<form accept-charset="UTF-8" role="form">
+                    <fieldset>
+			    	  	<div class="form-group">
+			    	  		<div class="input-group">
+			    	  		<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+			    		    <input class="form-control" placeholder="Login" name="userId" type="text">
+			    		    </div>
+			    		</div>
+			    		<div class="form-group">
+			    			<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+			    				<input class="form-control" placeholder="Password" name="password" type="password" value="">
+			    		</div>
+			    		</div>
+			    		<input class="btn btn-success btn-block" type="submit" value="Login">
+			    		<a href="register.jsp" class="btn btn-primary btn-block active" role="button">Register Me</a>
 
-<div id="login-box">
-
-<H2>Login Page</H2>
-Please provide your credential to use this website
-<br />
-<br />
-<div id="login-box-name" style="margin-top:20px;">User Id:</div>
-<div id="login-box-field" style="margin-top:20px;">
-<input name="userId" class="form-login" title="Username" value="" size="30" maxlength="50" />
-</div>
-<div id="login-box-name">Password:</div>
-<div id="login-box-field">
-<input name="password" type="password" class="form-login" title="Password" value="" size="30" maxlength="48" />
-</div>
-<br />
-<span class="login-box-options">
-New User?  <a href="register.jsp" style="margin-left:30px;">Register Here</a>
-</span>
-<br />
-<br />
-<input style="margin-left:100px;" type="submit" value="Login" />
-</div>
-
-</div>
-
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
+	</div>
 </form>
-
 </body>
 </html>
